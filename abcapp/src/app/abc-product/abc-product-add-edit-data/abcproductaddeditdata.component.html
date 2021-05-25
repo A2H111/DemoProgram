@@ -1,0 +1,85 @@
+<form [formGroup]="productDataFormGroup" #AddEditForm="ngForm">
+    <div class="container modal-popup">
+        <div class="row blue-background-color">
+          <div class="col-xs-12 col-sm-12 margin-bottom-25 center-align">
+              <div class="row justify-content-center">
+               <span class="header-font center-align">{{selectedOperation}} Product Data</span>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 margin-bottom-25 margin-top-25" >
+            <div class="row">
+              <div class="col-xs-6 col-md-4 normal-font">Enter Product Name</div>
+              <div class="col-xs-12 col-md-8">
+                  <input type="text"  class="form-control" formControlName="txtProductName" id="txtProductName" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 margin-bottom-25">
+            <div class="row">
+              <div class="col-xs-6 col-md-4 normal-font">Enter Product Stock Level</div>
+              <div class="col-xs-12 col-md-8">
+                  <input type="text"  class="form-control" formControlName="txtProductLevel" id="txtProductLevel" name="txtProductLevel" >
+                  <div class="form-control-feedback" *ngIf="productDataFormGroup.controls['txtProductLevel'].errors 
+                    && (productDataFormGroup.controls['txtProductLevel']?.touched || productDataFormGroup.controls['txtProductLevel']?.dirty)">
+                    <p *ngIf="productDataFormGroup.controls['txtProductLevel']?.errors?.pattern" class="text-danger">Please enter numbers</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 margin-bottom-25 ">
+            <div class="row">
+              <div class="col-xs-6 col-md-4 normal-font">Enter Product Category</div>
+              <div class="col-xs-12 col-md-8">
+                  <input type="text"  class="form-control" formControlName="txtProductCategory" id="txtProductCategory" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 margin-bottom-25 ">
+            <div class="row">
+              <div class="col-xs-6 col-md-4 normal-font">Enter Product Price</div>
+              <div class="col-xs-12 col-md-8">
+                  <input type="text"  class="form-control" formControlName="txtProductPrice" id="txtProductPrice" >
+                  <div class="form-control-feedback" *ngIf="productDataFormGroup.controls['txtProductPrice'].errors 
+                  && (productDataFormGroup.controls['txtProductPrice']?.touched || productDataFormGroup.controls['txtProductPrice']?.dirty)">
+                  <p *ngIf="productDataFormGroup.controls['txtProductPrice']?.errors?.pattern" class="text-danger">Please enter decimal number</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 margin-bottom-25 ">
+            <div class="row">
+              <div class="col-xs-6 col-md-4 normal-font">Enter Product Description</div>
+              <div class="col-xs-12 col-md-8">
+                <input type="text"  class="form-control" formControlName="txtProductDesc" id="txtProductDesc" >
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 margin-bottom-25">
+                <div class="row justify-content-center">
+                  <div class="col-xs-12 col-md-4">
+                      <button class="form-control btn btn-secondary" name="btnSubmit" [disabled]="(!AddEditForm.form.valid)"  type="submit"  (click)="onSubmit()">Save Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         
+        <div class="input-group justify-content-around" *ngIf="resultMessage">
+            <div class="m-2" >
+                <p class="text-success">{{resultMessage}}</p>
+            </div>
+        </div>
+    </div>
+</form>
