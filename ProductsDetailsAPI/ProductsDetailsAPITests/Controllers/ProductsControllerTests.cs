@@ -1,10 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProductsDetailsAPI.Controllers;
+﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Moq;
+using ProductsDetailsAPI.Controllers;
+using ProductsDetailsAPI.Repository;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using ProductsDetailsAPI.Models;
 
-namespace ProductsDetailsAPI.Controllers.Tests
+namespace ProductsDetailsAPI.Tests.Controllers
 {
     [TestFixture]
     public class ProductControllerTests
@@ -17,12 +22,12 @@ namespace ProductsDetailsAPI.Controllers.Tests
         [SetUp]
         public void Setup()
         {
-            _MockProductsRepository = new Mock<IProductsRepository>();
-            _MockProducts = new List<DataContract.Product>();
+            _MockProductsRepository=new Mock<IProductsRepository>();            
+            _MockProducts=new List<DataContract.Product>();
             _MockProducts.Add(new DataContract.Product());
 
-            _ProductsController = new ProductsController(_MockProductsRepository.Object);
-
+            _ProductsController = new ProductsController(_MockProductsRepository.Object);   
+            
         }
 
         [Test]
@@ -66,12 +71,10 @@ namespace ProductsDetailsAPI.Controllers.Tests
             {
                 ProductId = new int[] { 1 }
             };
-
+        
             _MockProductsRepository.Setup(p => p.DeleteProductsDetails(input)).Returns(Task.FromResult(1));
             var value = _ProductsController.Delete(input);
             Assert.IsInstanceOf<NoContentResult>(value.Result);
-        }
-
+        } 
     }
-
 }
