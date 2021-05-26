@@ -1,0 +1,59 @@
+
+<div class="wrapper">
+    <div class="margin-top-15 margin-bottom-25">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">Search by Product Name</span>
+              </div>
+                <input id="txtSearch"  #txtSearch type="text" class="form-control" />
+                <span class="input-group-btn">
+                <button type="submit" class="margin-left-15 btn btn-primary " (click)="onProductSearch(txtSearch.value)" value="search">Search</button>
+                </span>
+        </div>
+    </div>
+    <div >
+        <div class="sidebar">
+            <a class="active" href="#home">Search Details</a>
+            <a href="#" routerLink="/multipledelete">Bulk Delete</a>
+        </div>
+        <div id="content" class="contentcontainer">
+            <div class="carditem display-flex-end">
+                <button type="submit" class=" margin-left-15 btn btn-primary btn-sm" (click)="onAddEditRecord('Add','')"  value="Add">Add Record</button>
+            </div>
+            <div class="card carditem" *ngFor="let productData of productDataList;trackBy:trackbyFunction">
+                <div class="card-header cardheadercustom card-Header-Font" >
+                    <div class="display-flex-spacebetween">
+                        <span>
+                            Product Name : {{productData.productName}}
+                        </span>
+                        <span>
+                            <button type="submit" class="btn btn-primary btn-sm"  (click)="onAddEditRecord('Edit',productData)" value="Edit">Edit Record</button>
+                        </span>
+                    </div>
+                   
+                </div>
+                <div class="card-body cardBodyContainer">
+                    <div class="cardFlexBasis">
+                        <span>
+                            Product Price
+                        </span>
+                        <div class="font-12px margin-bottom-15">{{productData.productPrice}}</div>
+                        <span>Product Description</span>
+                        <div class="font-12px col-md-8">{{productData.productDescription}}</div>
+                    </div>
+                    <div class="cardFlexBasis">
+                        <span>
+                            Product Stock Level
+                        </span>
+                        <div class="font-12px margin-bottom-15">{{productData.productStockLevel}}</div>
+                        <span>
+                            Product Category
+                        </span>
+                        <div class="font-12px ">{{productData.productCategory}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
