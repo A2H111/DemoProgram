@@ -16,6 +16,7 @@ export class AbcSalesListComponent implements OnInit,OnDestroy {
   public productDataList : IProduct[]=[];
   public model: any;
   modalOption: NgbModalOptions = {};
+  displayLoading:boolean=true;
   private ngUnsubscribe: Subject<any> = new Subject();
   constructor(private _productDataHttpService:ProductDataHttpService,private _modalPopup:NgbModal) { }
 
@@ -34,6 +35,8 @@ export class AbcSalesListComponent implements OnInit,OnDestroy {
       data => { 
         this.productDataList = data},
       err =>{ console.log('An error occured')
+    },() =>{
+      this.displayLoading =false;
     });
   }
 
@@ -45,7 +48,10 @@ export class AbcSalesListComponent implements OnInit,OnDestroy {
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(
       data => { this.productDataList = data },
-      err =>{ console.log('An error occured')});  //TO DO add interceptor and log the exceptio nmesage in textfile
+      err =>{ console.log('An error occured')},
+      ()=>{
+        this.displayLoading =false;
+      });  //TO DO add interceptor and log the exceptio nmesage in textfile
     }
     else{
       this.onLoadSalesData();

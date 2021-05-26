@@ -1,5 +1,10 @@
 
-<div class="wrapper">
+
+<div class="d-flex justify-content-center" *ngIf="displayLoading">
+      <img src="../../../assets/images/Spinner-5.gif">
+  </div>
+
+<div class="wrapper" *ngIf="!(displayLoading)">
     <div class="margin-top-15 margin-bottom-25">
         <div class="input-group">
             <div class="input-group-prepend">
