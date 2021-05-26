@@ -39,11 +39,17 @@ export class AbcSalesListComponent implements OnInit,OnDestroy {
 
    onProductSearch = (searchText:any) =>{
     this.productDataList = [];
+    if(searchText !== "")
+    {
     this._productDataHttpService.getProductDataByProductName(searchText)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(
       data => { this.productDataList = data },
       err =>{ console.log('An error occured')});  //TO DO add interceptor and log the exceptio nmesage in textfile
+    }
+    else{
+      this.onLoadSalesData();
+    }
    }
 
 
