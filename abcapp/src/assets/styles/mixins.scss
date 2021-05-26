@@ -1,0 +1,36 @@
+
+@mixin display-flex($flexdirection)
+{
+    display: flex;
+    justify-content: $flexdirection;
+}
+
+@mixin table-fixed-header-media-query-400px
+{
+    overflow-y: scroll;
+    max-height: 100%;
+    max-width: 100%;
+    thead{
+        th {
+             position:inherit;
+             top: 0; 
+             z-index: 1;
+             background: $blue-background-color;
+            }
+    }
+}   
+
+@mixin table-fixed-header-media-query-1024px
+{
+    overflow-y: scroll;
+    max-height: 100%;
+    max-width: 100%;
+    thead{
+        th {
+             position:inherit;
+             top: 0; 
+             z-index: 1;
+             background: $blue-background-color;
+            }
+    }
+}   

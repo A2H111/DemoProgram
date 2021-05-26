@@ -1,0 +1,4 @@
+D:\Learning\DemoApp\ProductsDetailsAPI\ProductsDetailsAPITests\obj\Debug\netcoreapp3.1\ProductsDetailsAPITests.csprojAssemblyReference.cache
+D:\Learning\DemoApp\ProductsDetailsAPI\ProductsDetailsAPITests\obj\Debug\netcoreapp3.1\ProductsDetailsAPITests.AssemblyInfoInputs.cache
+D:\Learning\DemoApp\ProductsDetailsAPI\ProductsDetailsAPITests\obj\Debug\netcoreapp3.1\ProductsDetailsAPITests.AssemblyInfo.cs
+D:\Learning\DemoApp\ProductsDetailsAPI\ProductsDetailsAPITests\obj\Debug\netcoreapp3.1\ProductsDetailsAPITests.csproj.CoreCompileInputs.cache

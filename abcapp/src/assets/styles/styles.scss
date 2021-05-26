@@ -1,0 +1,222 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'variables';
+@import 'mixins';
+
+
+.font-12px
+{
+    font-family: $font-name;
+    color:black;
+    font-size: 12 rem;
+}
+.contentcontainer{
+    margin-left: $margin-25px;
+    margin-right:$margin-25px;
+}
+.card-Header-Font
+{
+    font-family: $font-name;
+    color:$card-font-color;
+    font-weight: bold;
+    font-size: 16 rem;
+}
+.display-flex-end
+{
+    @include display-flex(flex-end);
+}
+.display-flex-spacebetween
+{
+    @include display-flex(space-between);
+}
+.margin-bottom-25
+{
+    margin-bottom:$margin-25px;
+}
+
+.margin-top-25
+{
+    margin-top:$margin-25px !important;
+}
+.margin-bottom-15
+{
+    margin-bottom:$margin-15px;
+}
+.margin-top-15
+{
+    margin-top:$margin-15px;
+}
+.margin-left-15
+{
+    margin-left:$margin-15px !important;
+}
+.header-font
+{
+    font-weight: bold;
+    font-size: 15pt;
+    font-family:$font-name;
+}
+.center-align
+{
+    text-align: center;
+}
+.delete-button-alignment
+{
+    margin: auto !important; 
+    max-width: 300px !important;
+}
+.blue-background-color
+{
+    background-color:$blue-background-color;
+}
+.carditem
+{
+    margin-left: 250px;
+    margin-bottom:$margin-25px;
+
+}
+
+.table-fixed-header
+{
+    overflow-y: scroll;
+    max-height: 35vw;
+    margin-left:$margin-25px !important;
+    thead{
+        th {
+             position: sticky; 
+             top: 0; 
+             z-index: 1;
+             background: $blue-background-color;
+            }
+    }
+}
+
+.cardBodyContainer
+{
+    display: flex; 
+}
+.cardFlexBasis
+{   
+    flex-basis: 50%;
+}
+.header
+{
+    position: fixed;
+    background-color:$blue-background-color;
+    display: flex;
+    height:4.3 rem;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top:0;
+}
+.sidebar
+{
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #60b6c5;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #85abd6;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: rgb(85, 85, 85);
+    color: white;
+  }
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+
+  %media-query-screens-400px {
+    .sidebar a {
+        text-align: center;
+        float: none;
+      }
+      .sidebar
+      {
+          width: 100%;
+      }
+      .carditem
+      {
+          margin-left: 0;
+          margin-bottom: 0;
+      }
+      .table-fixed-header
+      {
+        @include table-fixed-header-media-query-400px;
+      }
+     
+  }
+  @media only screen and (max-width: 700px) and (min-width: 400px)  {
+    .sidebar a {
+        text-align: center;
+        float: none;
+      }
+      .sidebar
+      {
+          width: 100%;
+      }
+      .carditem
+      {
+          margin-left: 0;
+          margin-bottom: 0;
+      }
+      .table-fixed-header
+      {
+        @include table-fixed-header-media-query-400px;
+      }
+    
+  }
+
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+      }
+      .sidebar
+      {
+          width: 100%;
+      }
+      .carditem
+      {
+          margin-left: 0;
+          margin-bottom: 0;
+      }
+      .table-fixed-header
+      {
+            @include table-fixed-header-media-query-400px;
+      }
+  }
+
+  
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
