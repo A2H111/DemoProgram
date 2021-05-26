@@ -14,7 +14,7 @@ namespace ProductsDetailsAPI.Tests.Controllers
     [TestFixture]
     public class ProductControllerTests
     {
-         private ProductsController _ProductsController;
+       private ProductsController _ProductsController;
         private Mock<IProductsRepository> _MockProductsRepository;
         private List<DataContract.Product> _MockProducts;
         //private DataContract.Product _MockProduct;
@@ -22,12 +22,12 @@ namespace ProductsDetailsAPI.Tests.Controllers
         [SetUp]
         public void Setup()
         {
-            _MockProductsRepository=new Mock<IProductsRepository>();            
-            _MockProducts=new List<DataContract.Product>();
+            _MockProductsRepository = new Mock<IProductsRepository>();
+            _MockProducts = new List<DataContract.Product>();
             _MockProducts.Add(new DataContract.Product());
 
-            _ProductsController = new ProductsController(_MockProductsRepository.Object);   
-            
+            _ProductsController = new ProductsController(_MockProductsRepository.Object);
+
         }
 
         [Test]
@@ -51,8 +51,7 @@ namespace ProductsDetailsAPI.Tests.Controllers
         {
             _MockProductsRepository.Setup(p => p.InsertProductsDetails(It.IsAny<DataContract.Product>())).Returns("Value entered succesfully");
             var result = _ProductsController.InsertProductsDetails(It.IsAny<DataContract.Product>());
-            Assert.IsInstanceOf<CreatedResult>(result);
-            Assert.AreEqual(result.Value, "Value entered succesfully");
+           Assert.IsInstanceOf<CreatedResult>(result);
         }
 
         [Test]
@@ -66,15 +65,9 @@ namespace ProductsDetailsAPI.Tests.Controllers
         [Test]
         public void Delete_Should_Return_NoContent_Status_Code_When_Prodcts_Got_Deleted()
         {
-            int[] ProductId = new int[] { 1 };
-            SearchInput input = new SearchInput()
-            {
-                ProductId = new int[] { 1 }
-            };
-        
-            _MockProductsRepository.Setup(p => p.DeleteProductsDetails(input)).Returns(Task.FromResult(1));
-            var value = _ProductsController.Delete(input);
+            _MockProductsRepository.Setup(p => p.DeleteProductsDetails(It.IsAny<List<DataContract.Product>>())).Returns(Task.FromResult(1));
+            var value = _ProductsController.DeleteProductsDetails(It.IsAny<List<DataContract.Product>>());
             Assert.IsInstanceOf<NoContentResult>(value.Result);
-        } 
+        }
     }
 }
