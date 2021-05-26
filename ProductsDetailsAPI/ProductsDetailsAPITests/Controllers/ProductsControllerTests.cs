@@ -14,7 +14,7 @@ namespace ProductsDetailsAPI.Tests.Controllers
     [TestFixture]
     public class ProductControllerTests
     {
-        private ProductsController _ProductsController;
+         private ProductsController _ProductsController;
         private Mock<IProductsRepository> _MockProductsRepository;
         private List<DataContract.Product> _MockProducts;
         //private DataContract.Product _MockProduct;
